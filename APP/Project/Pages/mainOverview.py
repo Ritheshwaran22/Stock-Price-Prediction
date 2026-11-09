@@ -42,14 +42,11 @@ def mainOverview():
     )
 
     chosen_code = POPULAR_OVERVIEW_STOCKS[stock_choice][1]
-    if chosen_code == "CUSTOM":
-        companyName = st.sidebar.text_input(
-            'Enter Company Name / Ticker',
-            value=current_default if current_default not in pop_codes else 'RELIANCE.NS',
-            help="Type any symbol or company name (e.g., Reliance Industries, AAPL, SBIN.NS, MSFT, TSLA)"
-        )
-    else:
-        companyName = chosen_code
+    companyName = st.sidebar.text_input(
+        'Enter Company Name / Ticker',
+        value=chosen_code if chosen_code != "CUSTOM" else (current_default if current_default not in pop_codes else 'RELIANCE.NS'),
+        help="Type any symbol or company name (e.g., Reliance Industries, AAPL, SBIN.NS, MSFT, TSLA)"
+    )
 
     tickerInformation = st.sidebar.selectbox(
         label='Overview Section',

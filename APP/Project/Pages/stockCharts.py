@@ -1,30 +1,48 @@
-''' stockCharts.py : Function to draw stock charts'''
+''' stockCharts.py : Function to draw interactive stock charts '''
 
 # External Imports
 import streamlit as st
 import plotly.express as px
-import yfinance as yf
+import pandas as pd
 
-# Function to draw Close and Open Prices of ticker
-def getStockChart(ticker, parameterList, title):
+from .searchticker import name_convert
+from ..Forecast import fetch_market_data
+
+# Function to draw Close, Open, High, Low Prices of ticker
+def getStockChart(ticker_input, parameterList, title):
+    """
+    Renders an interactive Plotly financial line chart for any requested stock symbol.
+    Uses resilient multi-strategy data fetching with automatic ticker resolution.
+    """
     try:
-        tickerData = yf.Ticker(ticker).history(period='max')
+        clean_ticker = name_convert(str(ticker_input).strip()).upper()
+        tickerData = fetch_market_data(clean_ticker, period='2y')
+
         if tickerData is None or tickerData.empty:
-            st.warning(f"No historical chart data available for ticker '{ticker}'.")
+            st.warning(f"No historical chart data available for ticker '{clean_ticker}'.")
             return None
 
         # Validate requested parameters exist in dataframe
         available_params = [p for p in parameterList if p in tickerData.columns]
         if not available_params:
-            st.warning(f"Requested parameters {parameterList} not found in historical data.")
-            return None
+            if 'Close' in tickerData.columns:
+                available_params = ['Close']
+            else:
+                st.warning(f"Requested parameters {parameterList} not found in historical data.")
+                return None
 
-        fig = px.line(tickerData, x=tickerData.index, y=available_params, title=f"{title} - {ticker.upper()}")
+        fig = px.line(
+            tickerData,
+            x=tickerData.index,
+            y=available_params,
+            title=f"{title} — {clean_ticker}"
+        )
         fig.layout.update(
             xaxis_rangeslider_visible=True,
-            xaxis_title="Date",
-            yaxis_title="Price / Value",
-            template="plotly_white"
+            xaxis_title="Trading Date",
+            yaxis_title="Market Value",
+            template="plotly_white",
+            hovermode="x unified"
         )
         return fig
 

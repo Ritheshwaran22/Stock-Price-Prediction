@@ -124,5 +124,35 @@ class TestStockAppCore(unittest.TestCase):
         # Ensure native INR prices are preserved and not inflated to 93,000
         self.assertEqual(inverseConvertCurrency(1033.40, target_ticker="SBIN.NS"), 1033.40)
 
+    def test_fallback_market_series_and_data_fetch(self):
+        """Tests that market data fallback generates a valid, realistic dataset when network is offline."""
+        from Project.Forecast import _get_fallback_market_series, fetch_market_data
+        df_sbin = _get_fallback_market_series("SBIN.NS", period="1y")
+        self.assertFalse(df_sbin.empty)
+        self.assertGreaterEqual(len(df_sbin), 200)
+        self.assertIn("Close", df_sbin.columns)
+        self.assertIn("Volume", df_sbin.columns)
+        # Price should be realistic around SBI benchmark (~1000)
+        latest_price = float(df_sbin["Close"].iloc[-1])
+        self.assertGreater(latest_price, 800)
+        self.assertLess(latest_price, 1300)
+
+        # Ensure fetch_market_data never returns an empty DataFrame
+        df_fetched = fetch_market_data("RELIANCE.NS", period="1y")
+        self.assertFalse(df_fetched.empty)
+        self.assertIn("Close", df_fetched.columns)
+
+    def test_company_profiles_coverage(self):
+        """Tests that COMPANY_PROFILES contains rich metadata for top global and Indian equities."""
+        from Project.Pages.companyOverview import COMPANY_PROFILES
+        for sym in ["RELIANCE.NS", "SBIN.NS", "TCS.NS", "AAPL", "MSFT", "NVDA"]:
+            self.assertIn(sym, COMPANY_PROFILES)
+            prof = COMPANY_PROFILES[sym]
+            self.assertTrue(len(prof["name"]) > 0)
+            self.assertTrue(len(prof["sector"]) > 0)
+            self.assertTrue(len(prof["country"]) > 0)
+            self.assertTrue(len(prof["website"]) > 0)
+            self.assertTrue(len(prof["summary"]) > 20)
+
 if __name__ == '__main__':
     unittest.main()

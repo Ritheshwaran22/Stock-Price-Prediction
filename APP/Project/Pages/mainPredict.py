@@ -82,6 +82,8 @@ def mainPredict():
         help='Historical data window used for pattern learning and trend modeling'
     )
 
+    sidebar_generate = st.sidebar.button("🚀 Generate Forecast", key="sidebar_gen_forecast")
+
     # 4 Main Tabs
     tab_all, tab_single, tab_models, tab_upload = st.tabs([
         "📊 All Stocks Predictions Board (Multi-Stock Screener)",
@@ -140,9 +142,10 @@ def mainPredict():
 
         st.info(f"Active Target Stock: **`{resolved_ticker}`** | Horizon: **`{forecast_days} Day(s)`** | Lookback: **`{lookback_window}`**")
 
-        if st.button(f"Generate Forecast for {resolved_ticker}", key="btn_run_single_universal"):
-            with st.spinner(f"Analyzing historical trends and projecting forward prices for {resolved_ticker}..."):
-                generateUniversalForecast(resolved_ticker, period=forecast_days, lookback=lookback_window)
+        st.button(f"🔄 Recalculate Forecast for {resolved_ticker}", key="btn_run_single_universal")
+        
+        with st.spinner(f"Analyzing historical trends and projecting forward prices for {resolved_ticker}..."):
+            generateUniversalForecast(resolved_ticker, period=forecast_days, lookback=lookback_window)
 
     # Tab 3: Pre-Trained & Saved Models Catalog
     with tab_models:
