@@ -1,0 +1,18 @@
+{
+  "model_name": "RELIANCE.NS-SEQ-RELIANCE.NS-PRED-1700000006",
+  "target_ticker": "RELIANCE.NS",
+  "feature_dim": 2,
+  "features": [
+    [
+      "RELIANCE.NS",
+      "Close"
+    ],
+    [
+      "RELIANCE.NS",
+      "Volume"
+    ]
+  ],
+  "min": 2780.3388336661305,
+  "max": 3388.972735608403,
+  "scaler_type": "MinMaxScaler"
+}

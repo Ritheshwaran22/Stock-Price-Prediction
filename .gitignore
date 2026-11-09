@@ -1,0 +1,54 @@
+# Core Environment
+.env
+.env.local
+.venv/
+.venv-tf/
+pip_tmp/
+pip_cache/
+env/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution & Build
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Secrets & Credentials
+*.pem
+*.key
+*.token
+credentials.json
+client_secrets.json
+
+# Streamlit Local Cache
+.streamlit/
+
+# Large datasets exceeding GitHub 100MB limit
+*stoc_open_close_values.csv
+
+# Test & Logging Caches
+.pytest_cache/
+*.log
+APP/logs/
+
+# OS Specific
+.DS_Store
+Thumbs.db
+desktop.ini
+

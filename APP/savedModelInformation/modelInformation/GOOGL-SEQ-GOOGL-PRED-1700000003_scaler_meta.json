@@ -1,0 +1,18 @@
+{
+  "model_name": "GOOGL-SEQ-GOOGL-PRED-1700000003",
+  "target_ticker": "GOOGL",
+  "feature_dim": 2,
+  "features": [
+    [
+      "GOOGL",
+      "Close"
+    ],
+    [
+      "GOOGL",
+      "Volume"
+    ]
+  ],
+  "min": 136.42210486457782,
+  "max": 181.0942939540376,
+  "scaler_type": "MinMaxScaler"
+}

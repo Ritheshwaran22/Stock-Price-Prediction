@@ -1,0 +1,18 @@
+{
+  "model_name": "INFY.NS-SEQ-INFY.NS-PRED-1700000008",
+  "target_ticker": "INFY.NS",
+  "feature_dim": 2,
+  "features": [
+    [
+      "INFY.NS",
+      "Close"
+    ],
+    [
+      "INFY.NS",
+      "Volume"
+    ]
+  ],
+  "min": 1679.9222529296176,
+  "max": 1976.6224221035352,
+  "scaler_type": "MinMaxScaler"
+}

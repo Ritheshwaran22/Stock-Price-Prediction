@@ -1,0 +1,18 @@
+{
+  "model_name": "SBIN.NS-SEQ-SBIN.NS-PRED-1700000010",
+  "target_ticker": "SBIN.NS",
+  "feature_dim": 2,
+  "features": [
+    [
+      "SBIN.NS",
+      "Close"
+    ],
+    [
+      "SBIN.NS",
+      "Volume"
+    ]
+  ],
+  "min": 832.8294347717609,
+  "max": 1015.8028740315898,
+  "scaler_type": "MinMaxScaler"
+}

@@ -1,0 +1,18 @@
+{
+  "model_name": "AAPL-SEQ-AAPL-PRED-1700000001",
+  "target_ticker": "AAPL",
+  "feature_dim": 2,
+  "features": [
+    [
+      "AAPL",
+      "Close"
+    ],
+    [
+      "AAPL",
+      "Volume"
+    ]
+  ],
+  "min": 167.73899767433045,
+  "max": 203.8524946653971,
+  "scaler_type": "MinMaxScaler"
+}

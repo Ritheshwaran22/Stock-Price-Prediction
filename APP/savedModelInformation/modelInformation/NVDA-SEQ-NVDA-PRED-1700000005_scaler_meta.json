@@ -1,0 +1,18 @@
+{
+  "model_name": "NVDA-SEQ-NVDA-PRED-1700000005",
+  "target_ticker": "NVDA",
+  "feature_dim": 2,
+  "features": [
+    [
+      "NVDA",
+      "Close"
+    ],
+    [
+      "NVDA",
+      "Volume"
+    ]
+  ],
+  "min": 116.09502121076501,
+  "max": 140.56164786595374,
+  "scaler_type": "MinMaxScaler"
+}

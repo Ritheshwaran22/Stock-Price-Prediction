@@ -1,0 +1,18 @@
+{
+  "model_name": "MSFT-SEQ-MSFT-PRED-1700000002",
+  "target_ticker": "MSFT",
+  "feature_dim": 2,
+  "features": [
+    [
+      "MSFT",
+      "Close"
+    ],
+    [
+      "MSFT",
+      "Volume"
+    ]
+  ],
+  "min": 331.87687300664186,
+  "max": 417.37442556134556,
+  "scaler_type": "MinMaxScaler"
+}

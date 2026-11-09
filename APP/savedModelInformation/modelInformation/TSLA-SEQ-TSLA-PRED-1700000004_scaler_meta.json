@@ -1,0 +1,18 @@
+{
+  "model_name": "TSLA-SEQ-TSLA-PRED-1700000004",
+  "target_ticker": "TSLA",
+  "feature_dim": 2,
+  "features": [
+    [
+      "TSLA",
+      "Close"
+    ],
+    [
+      "TSLA",
+      "Volume"
+    ]
+  ],
+  "min": 239.71100342705552,
+  "max": 282.7450664451812,
+  "scaler_type": "MinMaxScaler"
+}

@@ -1,0 +1,18 @@
+{
+  "model_name": "HDFCBANK.NS-SEQ-HDFCBANK.NS-PRED-1700000009",
+  "target_ticker": "HDFCBANK.NS",
+  "feature_dim": 2,
+  "features": [
+    [
+      "HDFCBANK.NS",
+      "Close"
+    ],
+    [
+      "HDFCBANK.NS",
+      "Volume"
+    ]
+  ],
+  "min": 1507.1777187852915,
+  "max": 1800.2821151576545,
+  "scaler_type": "MinMaxScaler"
+}

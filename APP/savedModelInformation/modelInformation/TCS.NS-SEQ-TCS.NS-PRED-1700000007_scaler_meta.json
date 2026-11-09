@@ -1,0 +1,18 @@
+{
+  "model_name": "TCS.NS-SEQ-TCS.NS-PRED-1700000007",
+  "target_ticker": "TCS.NS",
+  "feature_dim": 2,
+  "features": [
+    [
+      "TCS.NS",
+      "Close"
+    ],
+    [
+      "TCS.NS",
+      "Volume"
+    ]
+  ],
+  "min": 3600.9055788657497,
+  "max": 4224.266046831037,
+  "scaler_type": "MinMaxScaler"
+}
